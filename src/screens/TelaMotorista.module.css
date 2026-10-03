@@ -1,0 +1,61 @@
+﻿.screen  { min-height: 100dvh; background: #fff; padding: 20px; }
+.center  { min-height: 100dvh; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 16px; padding: 32px; background: #fff; }
+
+.header  { margin-bottom: 24px; }
+.vda     { font-size: 28px; font-weight: 700; color: #1a2e22; }
+.meta    { font-size: 13px; color: #6b8f7a; margin-top: 4px; }
+
+.steps   { display: flex; align-items: flex-start; margin-bottom: 24px; }
+.step    { flex: 1; display: flex; flex-direction: column; align-items: center; position: relative; }
+.stepDot {
+  width: 36px; height: 36px; border-radius: 50%;
+  background: #f5faf7; border: 1.5px solid #cde0d5;
+  display: flex; align-items: center; justify-content: center;
+  font-size: 14px; margin-bottom: 6px;
+}
+.stepDone   { background: #eaf5ef; border-color: #1a5c36; color: #1a5c36; font-weight: 700; }
+.stepActive { background: #1a5c36; border-color: #1a5c36; color: #fff; }
+.stepLabel  { font-size: 9px; color: #6b8f7a; text-align: center; }
+.stepLabelOn { color: #1a5c36; font-weight: 700; }
+.stepLine {
+  position: absolute; top: 18px; left: 55%; right: -45%;
+  height: 1.5px; background: #cde0d5;
+}
+.stepLineDone { background: #1a5c36; }
+
+.infoCard {
+  display: flex; justify-content: space-between;
+  padding: 14px; border-radius: 12px;
+  background: #f5faf7; border: 1px solid #cde0d5;
+  font-size: 14px; color: #6b8f7a; margin-bottom: 20px;
+}
+.infoCard strong { color: #1a2e22; font-size: 16px; }
+
+.btnChegou {
+  width: 100%; padding: 20px; border-radius: 14px;
+  background: #1a2e22; color: #fff; border: none;
+  font-size: 17px; font-weight: 700; cursor: pointer;
+  margin-top: auto;
+}
+.btnChegou:active { background: #0a1810; }
+
+.loadingTxt { font-size: 14px; color: #6b8f7a; }
+
+.abastTitle { font-size: 26px; font-weight: 700; color: #1a2e22; }
+.abastSub   { font-size: 13px; color: #6b8f7a; }
+.abastTimer {
+  padding: 24px; border-radius: 16px; text-align: center;
+  background: #f5faf7; border: 1.5px solid #cde0d5; width: 100%;
+}
+.abastTimerUrg { background: #fef2f2; border-color: #f5c6c6; }
+.abastVal      { font-size: 52px; font-weight: 700; color: #1a2e22; }
+.abastValUrg   { color: #b83030; }
+.abastLabel    { font-size: 13px; color: #6b8f7a; margin-top: 6px; }
+.btnAbast {
+  width: 100%; padding: 20px; border-radius: 14px;
+  background: #1a5c36; color: #fff; border: none;
+  font-size: 17px; font-weight: 700; cursor: pointer;
+}
+
+.finTitle { font-size: 24px; font-weight: 700; color: #1a2e22; }
+.finSub   { font-size: 14px; color: #6b8f7a; }
