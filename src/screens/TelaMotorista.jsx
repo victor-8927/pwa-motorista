@@ -13,10 +13,10 @@ const MOCK_VEHICLE = {
 }
 
 const STEPS = [
-  { key: "saida",    label: "Saída",    icon: "🚛" },
-  { key: "rota",     label: "Em rota",  icon: "🛣️" },
-  { key: "retorno",  label: "Retorno",  icon: "🏭" },
-  { key: "fim",      label: "Fim",      icon: "✅" },
+  { key: "saida",   label: "Saída",   icon: "🚛" },
+  { key: "rota",    label: "Em rota", icon: "🛣️" },
+  { key: "retorno", label: "Retorno", icon: "🏭" },
+  { key: "fim",     label: "Fim",     icon: "✅" },
 ]
 
 function formatTimer(secs) {
@@ -26,13 +26,13 @@ function formatTimer(secs) {
 }
 
 export default function TelaMotorista() {
-  const [vehicle, setVehicle]     = useState(null)
-  const [loading, setLoading]     = useState(true)
-  const [fase, setFase]           = useState("checklist_saida")
-  const [saidaData, setSaidaData] = useState(null)
+  const [vehicle, setVehicle]       = useState(null)
+  const [loading, setLoading]       = useState(true)
+  const [fase, setFase]             = useState("checklist_saida")
+  const [saidaData, setSaidaData]   = useState(null)
   const [abastTimer, setAbastTimer] = useState(0)
   const [abastecendo, setAbastecendo] = useState(false)
-  const [kmSaida, setKmSaida]     = useState(null)
+  const [kmSaida, setKmSaida]       = useState(null)
   const timerRef = useRef(null)
 
   useEffect(() => {
@@ -53,10 +53,8 @@ export default function TelaMotorista() {
 
   const handleSaida = async (data) => {
     setSaidaData(data)
-    try {
-      await api.registrarSaida(vehicle.id, MOTORISTA.nome, data.kmSaida)
-      setKmSaida(data.kmSaida)
-    } catch {}
+    try { await api.registrarSaida(vehicle.id, MOTORISTA.nome, data.kmSaida) } catch {}
+    setKmSaida(data.kmSaida)
     if (data.abastece) {
       try { await api.iniciarAbastecimento(vehicle.id, MOTORISTA.nome) } catch {}
       setAbastecendo(true)
@@ -86,7 +84,7 @@ export default function TelaMotorista() {
     </div>
   )
 
-  if (fase === "checklist_saida") return <ChecklistSaida vehicle={vehicle} onConcluir={handleSaida} />
+  if (fase === "checklist_saida")   return <ChecklistSaida vehicle={vehicle} onConcluir={handleSaida} />
   if (fase === "checklist_retorno") return <ChecklistRetorno vehicle={vehicle} saidaData={saidaData} onConcluir={handleRetorno} />
 
   if (fase === "abastecendo") {
@@ -118,7 +116,6 @@ export default function TelaMotorista() {
     </div>
   )
 
-  // Em rota
   return (
     <div className={styles.screen}>
       <div className={styles.header}>
@@ -128,7 +125,7 @@ export default function TelaMotorista() {
 
       <div className={styles.steps}>
         {STEPS.map((s, i) => {
-          const done   = (fase === "em_rota" && i < 1) || fase === "finalizado"
+          const done   = fase === "finalizado"
           const active = fase === "em_rota" && i === 1
           return (
             <div key={s.key} className={styles.step}>
